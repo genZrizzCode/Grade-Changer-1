@@ -11,16 +11,16 @@
 // License: MIT License
 // Copyright (c) 2025 genZrizzCode
 
-(function() {
+(function() { // This makes the following code happen immediately
     console.log("%cGrade Changer 1 init.", "font-size: 2em; font-weight: bold; color: #39F;")
     'use strict';
-    window.addEventListener('load', () => {
-        let tbody = document.querySelector('table tbody');
-        if (tbody) {
-            tbody.id = 'grade-table';
+    window.addEventListener('load', () => { // This makes the following code start when the page loads
+        let tbody = document.querySelector('table tbody'); // makes tbody = the first <tbody> on the webpage
+        if (tbody) { // If there is a <tbody>:
+            tbody.id = 'grade-table';  // Changes the <tbody>'s id to 'grade-table
             console.log('ID added to tbody:', tbody);
 
-            let badLetterGrades = ['B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'].map(g => g.toUpperCase());
+            let badLetterGrades = ['B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'].map(g => g.toUpperCase()); 
             let replacementGrade = 'A<br>91';
 
             let cells = tbody.querySelectorAll('td');
