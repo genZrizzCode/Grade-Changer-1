@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Grade Changer 1
 // @namespace   GitHub
-// @match       https://*.powerschool.com/guardian/*
+// @match       https://*.powerschool.com/guardian/home.html
 // @grant       none
 // @version     1.0
 // @author      genZrizzCode
