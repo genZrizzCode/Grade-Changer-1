@@ -20,7 +20,7 @@
             tbody.id = 'grade-table';  // Changes the <tbody>'s id to 'grade-table
             console.log('ID added to tbody:', tbody);
 
-            let badLetterGrades = ['B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'].map(g => g.toUpperCase()); // Removes whitespace
+            let badLetterGrades = ['B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'].map(g => g.toUpperCase()); // Makes sure it is uppercase
             let replacementGrade = 'A<br>91';
 
             let cells = tbody.querySelectorAll('td'); // Selects all table cells in the <tbody>
