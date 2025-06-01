@@ -4,10 +4,11 @@
 // @match       *://*.powerschool.*/guardian/home.html*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     1.0
+// @version     2.0
 // @author      genZrizzCode
 // @description Changes all grades lower than an A-, to an A (91%). Only works for the overview at home.html. Grade Changer 2 will work on the detailed view.
-// @updateURL   https://raw.githubusercontent.com/genZrizzCode/Grade-Changer-1/main/grade-changer-one.user.js
+// @updateURL   https://raw.githubusercontent.com/genZrizzCode/Grade-Changer-1/refs/heads/main/grade-changer-one.user.js
+// @downloadURL https://raw.githubusercontent.com/genZrizzCode/Grade-Changer-1/refs/heads/main/grade-changer-one.user.js
 // ==/UserScript==
 
 // License: MIT License
@@ -16,10 +17,10 @@
 (function() { // This makes the following code happen immediately
     console.log("%cGrade Changer 1 init.", "font-size: 2em; font-weight: bold; color: #39F;") // %c makes it styleable
     'use strict';
-    window.addEventListener('load', () => { // This makes the following code start when the page loads
+    window.addEventListener('load', async() => { // This makes the following code start when the page loads
         let tbody = document.querySelector('table tbody'); // makes tbody = the first <tbody> on the webpage
         if (tbody) { // If there is a <tbody>:
-            tbody.id = 'grade-table';  // Changes the <tbody>'s id to 'grade-table
+            tbody.id = 'grade-table'; // Changes the <tbody>'s id to 'grade-table
             console.log('ID added to tbody:', tbody);
 
             let badLetterGrades = ['B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'].map(g => g.toUpperCase()); // Makes sure it is uppercase
@@ -53,6 +54,10 @@
         } else {
             console.log('No tbody found.');
         }
+        let runCount = await GM_getValue('runCount', 0);
+        runCount += 1;
+        await GM_setValue('runCount', runCount);
+        console.log(`Grade Changer 1 has run ${runCount} time${runCount === 1 ? '' : 's since version 2.0'}.`);    
         console.log("%cGrade Changer 1 fin.", "font-size: 2em; font-weight: bold; color: #39F;")
     });
 })();
